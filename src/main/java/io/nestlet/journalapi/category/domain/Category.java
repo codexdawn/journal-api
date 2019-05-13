@@ -3,7 +3,6 @@ package io.nestlet.journalapi.category.domain;
 import io.nestlet.journalapi.member.domain.Member;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -32,6 +31,6 @@ public class Category {
     @JoinColumn(name = "m_id")
     private Member member;
 
-    @OneToMany(mappedBy = "category")
-    private List<Category> categories = new ArrayList<>();
+//    @OneToMany(mappedBy = "category")
+//    private List<Category> categories = new ArrayList<>();
 }

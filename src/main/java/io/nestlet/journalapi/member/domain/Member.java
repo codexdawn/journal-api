@@ -32,9 +32,9 @@ public class Member {
     @UpdateTimestamp
     private LocalDateTime uptDt;
 
-    @OneToMany(mappedBy = "member")
-    private List<Category> categories = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member")
-    private List<Post> posts = new ArrayList<>();
+//    @OneToMany(mappedBy = "member")
+//    private List<Category> categories = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "member")
+//    private List<Post> posts = new ArrayList<>();
 }

@@ -2,7 +2,6 @@ package io.nestlet.journalapi.category.controller;
 
 import io.nestlet.journalapi.category.domain.Category;
 import io.nestlet.journalapi.category.service.CategoryService;
-import io.nestlet.journalapi.member.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
 package io.nestlet.journalapi.member.service.impl;
 
-import io.nestlet.journalapi.member.domain.Member;
 import io.nestlet.journalapi.member.domain.dto.MemberFindByNameRequestDto;
 import io.nestlet.journalapi.member.repository.MemberRepository;
 import io.nestlet.journalapi.member.service.MemberService;
