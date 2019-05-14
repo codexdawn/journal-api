@@ -3,6 +3,7 @@ package io.nestlet.journalapi.post.controller;
 import io.nestlet.journalapi.category.domain.Category;
 import io.nestlet.journalapi.member.domain.Member;
 import io.nestlet.journalapi.post.domain.Post;
+import io.nestlet.journalapi.post.domain.PostReadRequestDto;
 import io.nestlet.journalapi.post.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,15 +23,15 @@ public class PostController {
         this.postService = postService;
     }
 
-    @GetMapping("/posts/{pid}")
-    public ResponseEntity<Post> getPostByPid(@PathVariable long pid) throws Exception {
-        return new ResponseEntity<>(postService.getPostById(pid), HttpStatus.OK);
+    @GetMapping("/posts/{id}")
+    public ResponseEntity<PostReadRequestDto> findByPId(@PathVariable long id) throws Exception {
+        return new ResponseEntity<>(postService.findByPId(id), HttpStatus.OK);
     }
 
 
     /**
      * 임시로 저장하는 포스트
-     * @return
+     * @return Post
      */
     @PostMapping("/posts/save")
     public Post savePost() {
@@ -40,8 +41,8 @@ public class PostController {
         Category category = new Category();
         category.setCId(1L);
 
-        Post post = Post.builder().title("[20190513] GitHub에 journal-api 업로드한날!")
-                .contents("오늘은 Journal-api를 개발한지 얼마안된날 업로드를 하게 되었다! 기분이 너무 좋다!")
+        Post post = Post.builder().title("[20190514] 생각보다 쉽지않는 Java 와 JPA 의 길! ")
+                .contents("JPA를 마스터 해보는것이 어떨지 심각하게 생각해 본다! 정독한번 갈까?")
                 .member(member).category(category).build();
 
         return postService.savePost(post);

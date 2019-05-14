@@ -1,6 +1,7 @@
 package io.nestlet.journalapi.post.service.impl;
 
 import io.nestlet.journalapi.post.domain.Post;
+import io.nestlet.journalapi.post.domain.PostReadRequestDto;
 import io.nestlet.journalapi.post.repository.PostRepository;
 import io.nestlet.journalapi.post.service.PostService;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post getPostById(long id) throws Exception {
-        return postRepository.findById(id).orElseThrow(() -> new Exception("해당 아이디가 존재하지 않습니다."));
+    public PostReadRequestDto findByPId(long id) throws RuntimeException {
+        return postRepository.findByPId(id).orElseThrow(()->new RuntimeException("not found pid => " + id));
     }
 
     @Override
